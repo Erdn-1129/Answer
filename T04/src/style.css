@@ -1,0 +1,39 @@
+/* ============================================================
+   全局
+   ============================================================ */
+
+body {
+  margin: 0;
+  background: #1e1e1e;
+
+  /* SVG 文字会继承这里，
+     避免不同机器/投影仪字体不一致 */
+  font-family:
+    system-ui,
+    -apple-system,
+    "PingFang SC",
+    "Microsoft YaHei",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+
+/* ============================================================
+   图表
+   ============================================================ */
+
+svg {
+  display: block;
+  margin: 30px auto;
+
+  /* 防止在超宽屏上被拉得过大 */
+  max-width: 1000px;
+}
+
+svg text {
+  font-family: inherit;
+
+  /* 展示时避免误选文字 */
+  user-select: none;
+}

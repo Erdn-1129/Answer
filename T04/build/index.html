@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Erdn-T04</title>
+
+  <link rel="stylesheet" href="../src/style.css">
+</head>
+
+<body>
+
+  <svg
+    id="chart"
+    role="img"
+    aria-label="五个岗位指标的五边形分区地平线图"
+    viewBox="0 40 900 680"
+    preserveAspectRatio="xMidYMid meet"
+    style="width:100%;height:auto;display:block">
+  </svg>
+
+  <!-- 优先加载本地 D3（断网也能演示），本地缺失时回退 CDN -->
+  <script src="../src/vendor/d3.v7.min.js"></script>
+  <script>
+    window.d3 || document.write(
+      '<script src="https://cdn.jsdelivr.net/npm/d3@7"><\/script>'
+    );
+  </script>
+
+  <!-- 内嵌的 CSV 副本：双击 html（file://）打开时用它兜底 -->
+  <script src="../src/data.js"></script>
+
+  <script src="../src/chart.js"></script>
+
+</body>
+</html>
