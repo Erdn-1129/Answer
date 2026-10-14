@@ -27,8 +27,19 @@
     );
   </script>
 
-  <!-- 内嵌的 CSV 副本：双击 html（file://）打开时用它兜底 -->
-  <script src="../src/data.js"></script>
+  <!-- 兜底诊断：D3 没加载成功时给出原因，
+       否则页面只会一片空白，无从排查 -->
+  <script>
+    if (!window.d3) {
+      document.body.insertAdjacentHTML(
+        "afterbegin",
+        '<p style="color:#ff6b6b;text-align:center;' +
+        'font:14px system-ui;padding:20px">' +
+        'D3 加载失败：请确认 src/vendor/d3.v7.min.js 存在，' +
+        '或用「单文件版.html」打开</p>'
+      );
+    }
+  </script>
 
   <script src="../src/chart.js"></script>
 
