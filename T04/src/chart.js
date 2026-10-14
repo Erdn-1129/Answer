@@ -392,33 +392,16 @@ for (let i = 0; i < bandCount; i++) {
 // ============================================================
 // 6. 读取数据
 //
-// 两种打开方式都能用：
+// 通过本地服务器打开（http://）：
+//   d3.csv 读 src/DataSet.csv
 //
-//   http://  （本地服务器）→ d3.csv 读 src/DataSet.csv
-//   file://  （直接双击）  → fetch 会被 CORS 拦掉，
-//                            改用 src/data.js 里的内嵌副本
+// 注意：直接双击 html（file://）打开时，
+//       浏览器会因 CORS 拦掉本地 CSV 读取，
+//       必须起本地服务器才能看到数据。
 // ============================================================
 
+
 function loadData() {
-
-  if (
-    location.protocol === "file:"
-    && window.EMBEDDED_CSV
-  ) {
-
-    console.log(
-      "本地打开，使用内嵌 CSV 数据"
-    );
-
-    return Promise.resolve(
-      d3.csvParse(
-        // trim 掉首尾空行：
-        // 开头若留空行，表头会被当成数据行
-        window.EMBEDDED_CSV.trim()
-      )
-    );
-
-  }
 
   return d3.csv("../src/DataSet.csv");
 
